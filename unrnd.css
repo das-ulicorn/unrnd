@@ -1,0 +1,11 @@
+body {
+    font: 14pt/18pt sans-serif !important;
+    width:50em;
+}
+figure {
+    max-width: 60%;
+    margin: 0 auto;
+}
+figure img {
+    max-width: 100%;
+}
