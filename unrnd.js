@@ -1,6 +1,6 @@
 function unfuck(o){
     document.querySelectorAll('style,link[rel="stylesheet"]').forEach(item => item.remove());
-    document.body.innerHTML=`<h1>${o.headline}</h1><p><b>${o.subHeadline}</b></p>`;
+    document.body.innerHTML=`<link rel="stylesheet" src="https://das-ulicorn.github.io/unrnd/unrnd.css"/><h1>${o.headline}</h1><p><b>${o.subHeadline}</b></p>`;
     o.elements.forEach((x) => {
 	switch (x.type){
 	case 'header':
