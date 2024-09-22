@@ -1,6 +1,6 @@
 function unfuck(o){
     document.querySelectorAll('style,link[rel="stylesheet"]').forEach(item => item.remove());
-    document.body.innerHTML=`<link rel="stylesheet" href=="https://das-ulicorn.github.io/unrnd/unrnd.css" /><h1>${o.headline}</h1><p><b>${o.subHeadline}</b></p><figure><img src="${o.promoImage.src}" /><figcaption>${o.promoImage.caption}</figcaption></figure>`;
+    document.body.innerHTML=`<link rel="stylesheet" href="https://das-ulicorn.github.io/unrnd/unrnd.css" /><h1>${o.headline}</h1><p><b>${o.subHeadline}</b></p><figure><img src="${o.promoImage.src}" /><figcaption>${o.promoImage.caption}</figcaption></figure>`;
     o.elements.forEach((x) => {
 	switch (x.type){
 	case 'header':
