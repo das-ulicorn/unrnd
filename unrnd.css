@@ -1,6 +1,7 @@
 body {
     font: 14pt/1.25 sans-serif !important;
     width:40em;
+    padding: 2em;
 }
 figure {
     max-width: 60%;

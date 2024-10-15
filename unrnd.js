@@ -15,6 +15,13 @@ function unfuck(o){
 	case 'image':
 	    document.body.innerHTML+=`<figure><img src="${x.imageInfo.src}" /><figcaption>${x.imageInfo.caption}</figcaption></figure>`;
 	    break;
+	case 'list':
+	    document.body.innerHTML+= (x.list.isOrdered? '<ol>':'<ul>');
+	    x.list.items.forEach((a) => {
+		document.body.innerHTML += `<li>${a.text}</li>`;
+	    });
+	    document.body.innerHTML += (x.list.isOrdered? '</ol>':'</ul>');
+	    break;
 	}
     });
 }
