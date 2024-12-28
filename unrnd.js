@@ -26,7 +26,7 @@ function unfuck(o){
 	    document.body.innerHTML += (x.list.isOrdered? '</ol>':'</ul>');
 	    break;
 	default:
-	    document.body.innerHTML += `<details><summary>Unknown type ${x.type}</summary><code>JSON goes here</code></details>`;
+	    document.body.innerHTML += `<details><summary>Unknown type ${x.type}</summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
 	}
     });
 }
