@@ -3,6 +3,9 @@ function unfuck(o){
     document.body.innerHTML=`<link rel="stylesheet" href="https://das-ulicorn.github.io/unrnd/unrnd.css" /><h1>${o.headline}</h1><p><b>${o.subHeadline}</b></p><figure><img src="${o.promoImage.src}" /><figcaption>${o.promoImage.caption}</figcaption></figure>`;
     o.elements.forEach((x) => {
 	switch (x.type){
+	case 'ad':
+	case 'piano':
+	    break;
 	case 'header':
 	    document.body.innerHTML+=`<h2>${x.text}</h2>`;
 	    break;
@@ -22,6 +25,8 @@ function unfuck(o){
 	    });
 	    document.body.innerHTML += (x.list.isOrdered? '</ol>':'</ul>');
 	    break;
+	default:
+	    document.body.innerHTML += `<details><summary>Unknown type ${x.type}</summary><code>JSON goes here</code></details>`;
 	}
     });
 }
