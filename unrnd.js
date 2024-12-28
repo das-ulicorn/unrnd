@@ -25,6 +25,13 @@ function unfuck(o){
 	    });
 	    document.body.innerHTML += (x.list.isOrdered? '</ol>':'</ul>');
 	    break;
+	case 'video':
+	    document.body.innerHTML += '<video controls poster="${x.videoInfo.promoImage.src}" preload="metadata"><img src="${x.videoInfo.promoImage.src}" />';
+	    
+	    x.videoInfo.streams.forEach((s) => {
+		document.body.innerHTML += `<source src="${s.url}">`;
+	    });
+	    document.body.innerHTML += '</video>';
 	default:
 	    document.body.innerHTML += `<details><summary>Unknown type ${x.type}</summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
 	}
