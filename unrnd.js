@@ -32,8 +32,9 @@ function unfuck(o){
 		document.body.innerHTML += `<source src="${s.url}">`;
 	    });
 	    document.body.innerHTML += `</video>`;
+	    break;
 	default:
-	    document.body.innerHTML += `<details><summary>Unknown type ${x.type}</summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
+	    document.body.innerHTML += `<details><summary>Unknown type <code>${x.type}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
 	}
     });
 }
