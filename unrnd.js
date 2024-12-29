@@ -2,8 +2,18 @@ function unfuckElement(x){
     switch (x.type){
     case 'ad':
     case 'piano':
+    case 'newsletterAd':
 	return '';
 
+    case 'moreItems':
+	// this has "ids", a list of more articles,
+	// but doesn't contain title or anything, so
+	// just skip this
+	return '';
+	
+    case 'divider':
+	return '<hr />';
+	
     case 'header':
 	return `<h2>${x.text}</h2>`;
 
