@@ -21,6 +21,7 @@ function unfuckElement(x){
 	return `<p>${x.text}</p>`;
 
     case 'rawHtml':
+    case 'oembed':
 	return `<p>${x.html}</p>`;
 
     case 'quote':
