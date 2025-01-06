@@ -23,6 +23,9 @@ function unfuckElement(x){
     case 'rawHtml':
 	return `<p>${x.html}</p>`;
 
+    case 'quote':
+	return `<div><blockquote>${x.elements.join('<br/>')}</blockquote><cite>${x.author} ${x.authorDescription}</cite></div>`;
+	
     case 'image':
 	return `<figure><img src="${x.imageInfo.src}" /><figcaption>${x.imageInfo.caption}</figcaption></figure>`;
 
