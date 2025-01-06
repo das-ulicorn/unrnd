@@ -42,7 +42,7 @@ function unfuckElement(x){
                  ${x.videoInfo.streams.reverse().map(mksrc).join('')}</video>`;
 
     case 'customEmbed':
-	switch (x.subType) {
+	switch (x.subtype) {
 	case 'infobox':
 	    return `<aside><h3>${x.embed.config.headline}</h3><p><b>${x.embed.config.optionalHeadline}</b></p><p>${x.embed.config.text}</p></aside>`;
 	default:
