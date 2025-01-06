@@ -41,6 +41,14 @@ function unfuckElement(x){
                  <img src="${x.videoInfo.promoImage.src}" />
                  ${x.videoInfo.streams.reverse().map(mksrc).join('')}</video>`;
 
+    case 'customEmbed':
+	switch (x.subType) {
+	case 'infobox':
+	    return `<aside><h3>${x.embed.config.headline}</h3><p><b>${x.embed.config.optionalHeadline}</b></p><p>${x.embed.config.text}</p></aside>`;
+	default:
+	    return `<details><summary>Unknown type <code>customEmbed/${x.subtype}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
+	}
+	
     default:
 	return `<details><summary>Unknown type <code>${x.type}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
 
