@@ -18,6 +18,14 @@ video img {
     max-width: 100%;
 }
 
+blockquote ~ cite::before {
+    content: "– ";
+}
+blockquote ~ cite {
+    display: block;
+    text-align: right;
+}
+
 li {
     margin: 0.5em 0;
 }
