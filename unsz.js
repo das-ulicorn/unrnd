@@ -15,6 +15,15 @@ function unfuckComponent(o){
     case "subheadi":
 	return `<h2>${o.content.text}</h2>`;
 	break;
+
+    case "image":
+	return `<figure><img src="${o.content.image.url}"/>
+        <figcaption>${o.content.caption.html}</figcaption></figure>`;
+	break;
+	
+    case "youtube":
+	return `<p>${o.content.html}</p>`;
+	break;
 	
     case "iqadtile":
     case "articleT":
