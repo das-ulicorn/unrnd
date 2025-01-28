@@ -5,6 +5,7 @@ function unfuckComponent(o){
 	return `${o.content.overline}<br />
 <h1>${o.content.title}</h1>
 <p>${o.content.teaserText}</p>
+${unfuckComponent(o.content.topAsset)}
 `;
 	break;
 
@@ -22,7 +23,8 @@ function unfuckComponent(o){
 	break;
 	
     case "youtube":
-	return `<p>${o.content.html}</p>`;
+	return `<figure><iframe src="${o.content.url.replace('watch?v=','embed/')}"></iframe></figure>`
+	//return o.content.html;
 	break;
 	
     case "iqadtile":
