@@ -1,13 +1,43 @@
+function unfuckComponent(o){
+    switch (o.component.substring(0,8)){
+
+    case "articleH":
+	return `${o.content.overline}<br />
+<h1>${o.content.title}</h1>
+<p>${o.content.teaserText}</p>
+`;
+	break;
+
+    case "paragrap":
+	return `<p>${o.content.html}</p>`;
+	break;
+
+    case "subheadi":
+	return `<h2>${o.content.text}</h2>`;
+	break;
+	
+    case "iqadtile":
+    case "articleT":
+    case "newslett":
+	return "";
+	
+    default:
+	return `<details><summary>Unknown type <code>${o.component}</code></summary><pre>${JSON.stringify(o,null,4)}</pre></details>`;
+    }
+    
+}
+
 function unfuckElement(o){
-    return `<pre>${JSON.stringify(o,null,4)}</pre>`;
+    if (!o['uiArticleContent']) return;
+    return o['uiArticleContent'].map(unfuckComponent).join("\n");
+    
 }
 
 function unfuckAll(os){
     document.querySelectorAll('style,link[rel="stylesheet"]').forEach(item => item.remove());
     document.body.innerHTML=
         `<link rel="stylesheet" href="https://das-ulicorn.github.io/unrnd/unsz.css" />
-        ${Array.from(os.map(unfuckElement)).join("\n")}
-        `
+        ${Array.from(os.map(unfuckElement)).join("\n")}`;
 }
 
 unfuckAll(document.querySelectorAll("[data-hydration-props-component-name]")

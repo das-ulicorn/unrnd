@@ -1,0 +1,36 @@
+body {
+    font: 14pt/1.25 sans-serif !important;
+    width:40em;
+    padding: 2em;
+}
+figure {
+    max-width: 60%;
+    margin: 0 auto;
+}
+figure img {
+    max-width: 100%;
+}
+video {
+    max-width: 60%;
+    margin: 0 auto;
+}
+video img {
+    max-width: 100%;
+}
+
+blockquote ~ cite::before {
+    content: "– ";
+}
+blockquote ~ cite {
+    display: block;
+    text-align: right;
+}
+
+aside {
+    border: 1px solid #888;
+    padding: 0.5em 1.5em;
+}
+
+li {
+    margin: 0.5em 0;
+}
