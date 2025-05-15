@@ -53,6 +53,10 @@ function unfuckElement(x){
 	default:
 	    return `<details><summary>Unknown type <code>customEmbed/${x.subtype}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
 	}
+
+    case 'gallery':
+	return `<figure><img src="${x.galleryInfo.imageInfo.src}" /><figcaption>${x.galleryInfo.imageInfo.caption}<br /><a href="${x.path}">${x.imageCount} Bilder</a></figcaption></figure>`;
+	
 	
     default:
 	return `<details><summary>Unknown type <code>${x.type}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
