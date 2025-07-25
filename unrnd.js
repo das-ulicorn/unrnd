@@ -56,7 +56,10 @@ function unfuckElement(x){
 
     case 'gallery':
 	return `<figure><img src="${x.galleryInfo.imageInfo.src}" /><figcaption>${x.galleryInfo.imageInfo.caption}<br /><a href="${x.path}">${x.imageCount} Bilder</a></figcaption></figure>`;
-	
+
+    case 'faq':
+	var mkitem = x => `<details><summary>${x[0]}</summary>${x[1]}</details>`;
+	return `<aside>${x.embed.config.faq.map(mkitem).join('')}</aside>`;
 	
     default:
 	return `<details><summary>Unknown type <code>${x.type}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
