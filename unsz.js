@@ -10,6 +10,7 @@ ${unfuckComponent(o.content.topAsset)}
 	break;
 
     case "paragrap":
+    case "datawrap":
 	return `<p>${o.content.html}</p>`;
 	break;
 
