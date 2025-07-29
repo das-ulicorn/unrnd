@@ -10,12 +10,17 @@ ${unfuckComponent(o.content.topAsset)}
 	break;
 
     case "paragrap":
-    case "datawrap":
 	return `<p>${o.content.html}</p>`;
 	break;
 
     case "subheadi":
 	return `<h2>${o.content.text}</h2>`;
+	break;
+
+    case "datawrap":
+	var p = document.createElement('p');
+	p.innerHTML=o.content.html;
+	return `<p>${p.innerText}</p>`;
 	break;
 
     case "image":
