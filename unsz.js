@@ -24,6 +24,7 @@ ${unfuckComponent(o.content.topAsset)}
 	break;
 
     case "image":
+        if (!o['content']) o['content'] = o;
 	return `<figure><img src="${o.content.image.url}"/>
         <figcaption>${o.content.caption.html}</figcaption></figure>`;
 	break;
