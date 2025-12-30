@@ -46,7 +46,7 @@ function unfuckElement(x){
 	case 'infobox':
 	    return `<aside><h3>${x.embed.config.headline}</h3><p><b>${x.embed.config.optionalHeadline}</b></p><p>${x.embed.config.text}</p></aside>`;
 	case 'call-to-action':
-	    return `<aside><h3>${x.embed.config.headline}</h3><p>${x.embed.config.text}</p><p><a href="${x.embed.config.buttonLink}">${x.embed.config.buttonText}</a></p></aside>`
+	    return `<aside><h3>${x.embed.config.headline}</h3><p>${x.embed.config.text}</p><p><a href="${x.embed.config.buttonLink}">${x.embed.config.buttonText}</a></p></aside>`;
 	case 'table-of-contents':
 	case 'newsletter':
 	    return '';
@@ -54,6 +54,9 @@ function unfuckElement(x){
 	case 'faq':
 	    var mkitem = x => `<details><summary>${x[0]}</summary>${x[1]}</details>`;
 	    return `<aside>${x.embed.config.faq.map(mkitem).join('')}</aside>`;
+
+	case 'campanero':
+	    return `<aside><iframe src="${x.embed.config.src}"></iframe></aside>`;
 
 	default:
 	    return `<details><summary>Unknown type <code>customEmbed/${x.subtype}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
