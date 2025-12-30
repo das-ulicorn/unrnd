@@ -56,7 +56,7 @@ function unfuckElement(x){
 	    return `<aside>${x.embed.config.faq.map(mkitem).join('')}</aside>`;
 
 	case 'campanero':
-	    return `<aside><iframe src="${x.embed.config.src}"></iframe></aside>`;
+	    return `<aside><iframe style="width:100%;min-height:24ex;" src="${x.embed.config.src}"></iframe></aside>`;
 
 	default:
 	    return `<details><summary>Unknown type <code>customEmbed/${x.subtype}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
