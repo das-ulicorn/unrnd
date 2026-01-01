@@ -27,7 +27,8 @@ function unfuckElement(x){
 	    return `<p>${x.html}</p>`;
 
 	case 'quote':
-	    return `<div><blockquote>${x.elements.join('<br/>')}</blockquote><cite>${x.author} ${x.authorDescription}</cite></div>`;
+	    return `<div><blockquote>${x.elements.join('<br/>')}</blockquote>
+                    <cite>${x.author} ${x.authorDescription}</cite></div>`;
 	    
 	case 'image':
 	    return `<figure><img src="${x.imageInfo.src}" /><figcaption>${x.imageInfo.caption}</figcaption></figure>`;
@@ -47,10 +48,14 @@ function unfuckElement(x){
 	    switch (x.subtype) {
 		
 	    case 'infobox':
-		return `<aside><h3>${x.embed.config.headline}</h3><p><b>${x.embed.config.optionalHeadline}</b></p><p>${x.embed.config.text}</p></aside>`;
+		return `<aside><h3>${x.embed.config.headline}</h3>
+                        <p><b>${x.embed.config.optionalHeadline}</b></p>
+                        <p>${x.embed.config.text}</p></aside>`;
 
 	    case 'call-to-action':
-		return `<aside><h3>${x.embed.config.headline}</h3><p>${x.embed.config.text}</p><p><a href="${x.embed.config.buttonLink}">${x.embed.config.buttonText}</a></p></aside>`;
+		return `<aside><h3>${x.embed.config.headline}</h3>
+                        <p>${x.embed.config.text}</p>
+                        <p><a href="${x.embed.config.buttonLink}">${x.embed.config.buttonText}</a></p></aside>`;
 
 	    case 'table-of-contents':
 	    case 'newsletter':
@@ -64,11 +69,15 @@ function unfuckElement(x){
 		return `<aside><iframe style="width:100%;min-height:24ex;" src="${x.embed.config.src}"></iframe></aside>`;
 
 	    default:
-		return `<details><summary>Unknown type <code>customEmbed/${x.subtype}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
+		return `<details><summary>Unknown type <code>customEmbed/${x.subtype}</code></summary>
+                        <pre>${JSON.stringify(x,null,4)}</pre></details>`;
 	    }
 
 	case 'gallery':
-	    return `<figure><img src="${x.galleryInfo.promoImageInfo.src}" /><figcaption>${x.galleryInfo.promoImageInfo.caption}<br /><a href="${x.galleryInfo.path}">${x.galleryInfo.imageElements.length} Bilder</a></figcaption></figure>`;
+	    return `<figure><img src="${x.galleryInfo.promoImageInfo.src}" />
+                    <figcaption>${x.galleryInfo.promoImageInfo.caption}<br />
+                    <a href="${x.galleryInfo.path}">${x.galleryInfo.imageElements.length} Bilder</a></figcaption>
+                    </figure>`;
 
 	    
 	default:
@@ -77,7 +86,8 @@ function unfuckElement(x){
 	}
     } catch (e) {
 	console.error(e);
-	return `<details><summary>Error in <code>${x.type}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
+	return `<details><summary>Error in <code>${x.type}</code></summary>
+                <pre>${JSON.stringify(x,null,4)}</pre></details>`;
     }
 };
 
