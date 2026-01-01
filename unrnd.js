@@ -68,7 +68,7 @@ function unfuckElement(x){
 	    }
 
 	case 'gallery':
-	    return `<figure><img src="${x.galleryInfo.imageInfo.src}" /><figcaption>${x.galleryInfo.imageInfo.caption}<br /><a href="${x.path}">${x.imageCount} Bilder</a></figcaption></figure>`;
+	    return `<figure><img src="${x.galleryInfo.promoImageInfo.src}" /><figcaption>${x.galleryInfo.promoImageInfo.caption}<br /><a href="${x.galleryInfo.path}">${x.galleryInfo.imageElements.length} Bilder</a></figcaption></figure>`;
 
 	    
 	default:
@@ -76,6 +76,7 @@ function unfuckElement(x){
 
 	}
     } catch (e) {
+	console.error(e);
 	return `<details><summary>Error in <code>${x.type}</code></summary><pre>${JSON.stringify(x,null,4)}</pre></details>`;
     }
 };
