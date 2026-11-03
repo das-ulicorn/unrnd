@@ -98,9 +98,11 @@ function unfuckAll(o){
 	`<link rel="stylesheet" href="https://das-ulicorn.github.io/unrnd/unrnd.css" />
          <h1>${o.headline}</h1>
          <p><b>${o.subHeadline}</b></p>
-         <figure><img src="${o.promoImage.src}" /><figcaption>${o.promoImage.caption}</figcaption></figure>
+         <figure><img alt="${o.promoImage.alt}"
+          src="https://www.kn-online.de/resizer/v2/${o.promoImage.id}.${o.promoImage.fileExtension}?auth=${o.promoImage.auth[1]}&quality=5&width=800"
+         /><figcaption>${o.promoImage.caption}</figcaption></figure>
          ${o.elements.map(unfuckElement).join("\n")}`;
 }
-
+// https://www.kn-online.de/resizer/v2/7WYIMJKFINH3TBLPIZP4RUPIUA.jpg?auth=79998c3aa0b00dab93811f9beda3ee1056496636672a73a522a398a2eab26f29&quality=70&focal=324%2C606&width=596&height=335
 eval(document.getElementById('fusion-metadata').innerHTML);
 unfuckAll(Fusion.globalContent);
