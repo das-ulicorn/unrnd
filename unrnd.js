@@ -34,7 +34,7 @@ function unfuckElement(x){
 
 	case 'quote':
 	    return `<div><blockquote>${x.elements.join('<br/>')}</blockquote>
-                    <cite>${x.author} ${x.authorDescription}</cite></div>`;
+                    <cite>${x.author} ${x.authorDescription ??''}</cite></div>`;
 	    
 	case 'image':
 	    return `<figure>${imgel(x.imageInfo)}<figcaption>${x.imageInfo.caption}</figcaption></figure>`;
@@ -55,7 +55,7 @@ function unfuckElement(x){
 		
 	    case 'infobox':
 		return `<aside><h3>${x.embed.config.headline}</h3>
-                        <p><b>${x.embed.config.optionalHeadline}</b></p>
+                        <p><b>${x.embed.config.optionalHeadline ??''}</b></p>
                         <p>${x.embed.config.text}</p></aside>`;
 
 	    case 'call-to-action':
@@ -103,7 +103,7 @@ function unfuckAll(o){
     document.body.innerHTML=
 	`<link rel="stylesheet" href="https://das-ulicorn.github.io/unrnd/unrnd.css" />
          <h1>${o.headline}</h1>
-         <p><b>${o.subHeadline}</b></p>
+         <p><b>${o.subHeadline ??''}</b></p>
          <figure>${imgel(o.promoImage)}<figcaption>${o.promoImage.caption}</figcaption></figure>
          ${o.elements.map(unfuckElement).join("\n")}`;
 }
