@@ -1,8 +1,7 @@
 function imgel(o){
-    return
-    `<img src="/resizer/v2/${o.id}.${o.fileExtension}?auth=${o.auth[1]}&quality=5&width=800"
-          alt="${o.alt}" />`;
-}
+    console.log(o);
+    return `<img src="/resizer/v2/${o.id}.${o.fileExtension}?auth=${o.auth[1]}&quality=5&width=800" alt="${o.alt}" />`;
+};
 
 function unfuckElement(x){
     try {
