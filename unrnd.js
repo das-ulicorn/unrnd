@@ -31,7 +31,9 @@ function unfuckElement(x){
                     <cite>${x.author} ${x.authorDescription}</cite></div>`;
 	    
 	case 'image':
-	    return `<figure><img src="${x.imageInfo.src}" /><figcaption>${x.imageInfo.caption}</figcaption></figure>`;
+	    return `<figure><img
+              src="https://www.kn-online.de/resizer/v2/${x.imageInfo.id}.${x.imageInfo.fileExtension}?auth=${x.imageInfo.auth[1]}&quality=5&width=800"
+              /><figcaption>${x.imageInfo.caption}</figcaption></figure>`;
 
 	case 'list':
 	    var tag = (x.list.isOrdered? 'ol':'ul'),
