@@ -1,3 +1,9 @@
+function imgel(o){
+    return
+    `<img src="/resizer/v2/${o.id}.${o.fileExtension}?auth=${o.auth[1]}&quality=5&width=800"
+          alt="${o.alt}" />`;
+}
+
 function unfuckElement(x){
     try {
 	switch (x.type){
@@ -31,9 +37,7 @@ function unfuckElement(x){
                     <cite>${x.author} ${x.authorDescription}</cite></div>`;
 	    
 	case 'image':
-	    return `<figure><img
-              src="https://www.kn-online.de/resizer/v2/${x.imageInfo.id}.${x.imageInfo.fileExtension}?auth=${x.imageInfo.auth[1]}&quality=5&width=800"
-              /><figcaption>${x.imageInfo.caption}</figcaption></figure>`;
+	    return `<figure>${imgel(x.imageInfo)}<figcaption>${x.imageInfo.caption}</figcaption></figure>`;
 
 	case 'list':
 	    var tag = (x.list.isOrdered? 'ol':'ul'),
@@ -43,8 +47,8 @@ function unfuckElement(x){
 	case 'video':
 	    var mksrc = s => `<source src="${s.url}" />`;
 	    return `<video controls  poster="${x.videoInfo.promoImage.src}" preload="metadata">
-                 <img src="${x.videoInfo.promoImage.src}" />
-                 ${x.videoInfo.streams.reverse().map(mksrc).join('')}</video>`;
+                    ${imgel(x.videoInfo.promoImage)}
+                   ${x.videoInfo.streams.reverse().map(mksrc).join('')}</video>`;
 
 	case 'customEmbed':
 	    switch (x.subtype) {
@@ -76,7 +80,7 @@ function unfuckElement(x){
 	    }
 
 	case 'gallery':
-	    return `<figure><img src="${x.galleryInfo.promoImageInfo.src}" />
+	    return `<figure>${imgel(x.galleryInfo.promoImageInfo)}
                     <figcaption>${x.galleryInfo.promoImageInfo.caption}<br />
                     <a href="${x.galleryInfo.path}">${x.galleryInfo.imageElements.length} Bilder</a></figcaption>
                     </figure>`;
@@ -100,11 +104,8 @@ function unfuckAll(o){
 	`<link rel="stylesheet" href="https://das-ulicorn.github.io/unrnd/unrnd.css" />
          <h1>${o.headline}</h1>
          <p><b>${o.subHeadline}</b></p>
-         <figure><img alt="${o.promoImage.alt}"
-          src="https://www.kn-online.de/resizer/v2/${o.promoImage.id}.${o.promoImage.fileExtension}?auth=${o.promoImage.auth[1]}&quality=5&width=800"
-         /><figcaption>${o.promoImage.caption}</figcaption></figure>
+         <figure>${imgel(o.promoImage)}<figcaption>${o.promoImage.caption}</figcaption></figure>
          ${o.elements.map(unfuckElement).join("\n")}`;
 }
-// https://www.kn-online.de/resizer/v2/7WYIMJKFINH3TBLPIZP4RUPIUA.jpg?auth=79998c3aa0b00dab93811f9beda3ee1056496636672a73a522a398a2eab26f29&quality=70&focal=324%2C606&width=596&height=335
 eval(document.getElementById('fusion-metadata').innerHTML);
 unfuckAll(Fusion.globalContent);
